@@ -379,3 +379,20 @@ export const braintreePaymentController = async (req, res) => {
     console.log(error);
   }
 };
+
+export const cancelOrderController = async (req, res) => {
+  try {
+    await orderModel.findByIdAndDelete(req.params.id);
+    res.status(200).send({
+      success: true,
+      message: "Order cancelled successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      succes: false,
+      error,
+      message: "error in product delete controller",
+    });
+  }
+};
