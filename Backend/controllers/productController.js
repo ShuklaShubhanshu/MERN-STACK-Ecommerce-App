@@ -392,7 +392,7 @@ export const cancelOrderController = async (req, res) => {
     res.status(500).send({
       succes: false,
       error,
-      message: "error in product delete controller",
+      message: "error in order cancel controller",
     });
   }
 };
